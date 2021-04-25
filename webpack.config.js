@@ -7,10 +7,6 @@ const webpack = require('webpack');
 module.exports = {
   entry: {
     main: path.resolve(__dirname, 'src/index.js'),
-    SubscribeContainer: path.resolve(__dirname, 'src/components/subscribe/'),
-    SegmentForms: path.resolve(__dirname, 'src/components/subscribe/forms/subscribe'),
-    CodeForm: path.resolve(__dirname, 'src/components/subscribe/forms/code'),
-    ModalSuccess: path.resolve(__dirname, 'src/components/modals/modalSuccess.js'),
     ForumsComponent: path.resolve(__dirname, 'src/components/forums/')
   },
   output: {
@@ -76,10 +72,8 @@ module.exports = {
     new webpack.SourceMapDevToolPlugin({}),
     new webpack.DefinePlugin({
       PRODUCTION: JSON.stringify(process.env.PRODUCTION) || false,
-      WEATHER_API_HOST_DEV: JSON.stringify("http://127.0.0.1"),
+      WEATHER_API_HOST_DEV: JSON.stringify("http://127.0.0.1:8000"),
       WEATHER_API_HOST_PROD: JSON.stringify(process.env.API_HOST),
-      WEATHER_WS_HOST_DEV: JSON.stringify('ws://127.0.0.1'),
-      WEATHER_WS_HOST_PROD: JSON.stringify(process.env.WEATHER_WS_HOST)
     })
   ]
 };

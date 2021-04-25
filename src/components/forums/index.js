@@ -13,28 +13,17 @@ import TopicsContainer from '../dummy/forums/topicContainer';
 import {dateDecrement, dateIncrement, isYearPassed,
         isTommorow
         } from '../../utils';
-import {fetchWarnings} from '../../store/slices/warningsSlice';
 
 const ForumsComponent = (props) => {
 
        
-    const [warningsIndex, setWarningsIndex] = useState(0);
 
     const [isMount, setIsMount] = useState(true);
 
     useEffect( () =>{
         props.setForumInitial();
-        props.fetchWarnings();
     },[isMount]);
 
-
-    useEffect(() => {
-       if (props.warnings.length > 1) {
-            setTimeout(() => {
-                setWarningsIndex((warningsIndex+1)%props.warnings.length);
-            }, 20000);   
-       }   
-      });
 
     useEffect(() => {
         props.fetchSiteData();
@@ -92,7 +81,6 @@ const ForumsComponent = (props) => {
                                      activeIndex={props.forumsMenuActiveIndex}
                                      topics = {props.topics}  
                                      onMenuClick = {handleForumMenuItemClick}
-                                     warning = {props.warnings[warningsIndex]}
                         />
                         :
                         <Segment>
@@ -121,7 +109,6 @@ const mapStateToProps = (state) => {
         forumsMenuActiveIndex: state.forumsSlice.forumsMenuActiveIndex,
         forums: state.forumsSlice.forums,
         topics: state.forumsSlice.topics,
-        warnings: state.warnings.warningsArr,
     }
   }
   
@@ -129,7 +116,7 @@ const mapStateToProps = (state) => {
     return bindActionCreators({
         fetchSiteData, fetchForums, fetchTopics,
         setForumsMenuActiveIndex, setSitesMenuActiveIndex,
-        setDate, fetchWarnings, setForumInitial: setInitial,
+        setDate,  setForumInitial: setInitial,
       
    }, dispatch)
   }

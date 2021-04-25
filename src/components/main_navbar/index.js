@@ -1,6 +1,5 @@
 import React, { PureComponent } from "react";
 import {Menu, Image, Grid} from 'semantic-ui-react';
-import LogoImg from '../../images/logo.png';
 import BtcImg from '../../images/btc.png';
 import {Link} from 'react-router-dom';
 
@@ -20,10 +19,6 @@ class Navbar extends PureComponent{
                                     <Image src={BtcImg} avatar/>
                                     <span> <Link className='nav-item' to={`/`}>Отзывы о Белтелеком</Link></span>
                                 </Menu.Item>
-                                <Menu.Item>
-                                    <Image src={LogoImg} avatar/>
-                                    <span> <Link className='nav-item' to={`/weather`}>Штормовые предупреждения</Link></span>
-                                </Menu.Item>
                             </Menu>
                         </Grid.Column>
                     </Grid.Row>
@@ -33,9 +28,6 @@ class Navbar extends PureComponent{
                                 <Menu.Menu position="left">
                                         <Menu.Item>
                                             <span> <Link className='nav-item' to={`/`}>Отзывы</Link></span>
-                                        </Menu.Item>
-                                        <Menu.Item>
-                                            <span> <Link className='nav-item' to={`/weather`}>Шторм</Link></span>
                                         </Menu.Item>
                                     </Menu.Menu>
                             </Menu>

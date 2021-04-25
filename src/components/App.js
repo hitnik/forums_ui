@@ -1,6 +1,5 @@
 import React, { PureComponent } from "react";
 
-// import '../styles/App.css';
 
 import Navbar from "./main_navbar";
 import Main  from './main';

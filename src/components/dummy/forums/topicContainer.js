@@ -2,7 +2,6 @@ import React from "react";
 import {Menu, Label, Segment, Grid, Item} from 'semantic-ui-react';
 import {convertDateToTopic} from '../../../utils';
 import ReactHtmlParser from 'react-html-parser';
-import WarningLeftBanner from '../warning/bannerWarning';
 const ForumsMenuItem = (props) =>{
 
     return (
@@ -88,11 +87,6 @@ const TopicsContainer = (props) => {
                             />
                             )}
                             </Menu>
-                        </Segment>
-                        <Segment basic className="bunner-left">
-                            <WarningLeftBanner data={props.warning}
-                                                bannerVisible={props.bannerVisible}
-                            />
                         </Segment>
                     </Grid.Column>
                     <Grid.Column mobile={16} tablet={16} computer={11}>
